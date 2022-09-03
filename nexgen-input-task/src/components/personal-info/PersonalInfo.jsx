@@ -27,7 +27,7 @@ function PersonalInfo(){
             <Div>
                 <PhoneNumber />
                 <ProfilePicture />
-                {/* <Website /> */}
+                <Website />
                 {/* <Bio />                 */}
             </Div>
         </Wrapper>

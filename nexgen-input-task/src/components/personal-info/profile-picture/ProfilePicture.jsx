@@ -1,28 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { FormContext } from '../../../contexts/FormContext';
 import {Label,ErrorMessage,FileUpload} from '../PersonalInfo.styles';
 
 
 function ProfilePicture(){
     const {updateData} = useContext(FormContext);
-    const [input, setInput] = useState(null);
     const [error, setError] = useState('');
-
-    useEffect(() => {
-        if(input === ''){
-            setError('Password is required!');
-        }
-        else if(input === null){
-            return;
-        }
-        else if (input.length < 6 || input.length > 12) {
-            setError('Password must be between 6 and 12 characters.')
-        }
-        else{
-            updateData({password: input})
-            setError('');
-        }
-    }, [input]);
 
     const validateImageUpload = (e) => {
         let maxSizeInKb = 3000;
