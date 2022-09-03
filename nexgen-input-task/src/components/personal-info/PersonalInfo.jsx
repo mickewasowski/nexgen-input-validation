@@ -34,7 +34,7 @@ function PersonalInfo(){
                 <Email />
                 <Age />
                 <Password />
-                {/* <Birthday />  */}
+                <Birthday /> 
             </Div>
             <Div>
                 {/* <PhoneNumber />
