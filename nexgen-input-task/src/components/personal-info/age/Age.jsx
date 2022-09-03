@@ -4,12 +4,29 @@ import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 
 
 function Age(){
+    const {updateData} = useContext(FormContext);
+    const [input, setInput] = useState(0);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        if(input === 0){
+            setError('Age is mandatory!');
+        }
+        else if (input < 16 || input > 70) {
+            setError('Age must be between 16 and 70!')
+        }else{
+            updateData({age: input})
+            setError('');
+        }
+    }, [input]);
+
+
 
     return(
         <>
             <Label>Age*:</Label>
-            <InputField type="number" name="age" required onChange={handleOnChange} />
-            <ErrorMessage>{errors.age}</ErrorMessage>
+            <InputField type="number" name="age" required onChange={(e) => setInput(Number(e.target.value))} />
+            <ErrorMessage>{error}</ErrorMessage>
         </>
     )
 }

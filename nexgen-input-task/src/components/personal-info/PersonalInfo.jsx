@@ -32,9 +32,9 @@ function PersonalInfo(){
             <Div>
                 <FullName />
                 <Email />
-                {/* <Age />
-                <Password />
-                <Birthday /> */}
+                <Age />
+                {/* <Password /> */}
+                {/* <Birthday />  */}
             </Div>
             <Div>
                 {/* <PhoneNumber />
