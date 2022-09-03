@@ -2,33 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 import { FormContext } from '../../contexts/FormContext';
 import {Wrapper,Div, Label, InputField, ErrorMessage,FileUpload, Textarea} from './PersonalInfo.styles';
 import FullName from './full-name/FullName';
-
-
-const errorInitialState = {
-    fullName: '',
-    email: '',
-    age: '',
-    password: '',
-    birthDate: '',
-    phoneNumber: '',
-    profilePicture: '',
-    website: '',
-    bio: ''
-}
+import Email from './email/Email';
+import Age from './age/Age';
+import Password from './password/Password';
+import Birthday from './birthday/Birthday';
+import PhoneNumber from './phone-number/PhoneNumber';
+import ProfilePicture from './profile-picture/ProfilePicture';
+import Website from './website/Website';
+import Bio from './bio/Bio';
 
 function PersonalInfo(){
-    const [currentData, setCurrentData] = useState({});
-    const [errors, setErrors] = useState(errorInitialState);
     const {updateFormData} = useContext(FormContext);
-
-    useEffect(() => {
-
-    }, [errors]);
-
-
-    const handleOnChange = (e) => {
-        setCurrentData(prevState => {return {...prevState, [e.target.name]: e.target.value}})
-    }
 
     const validateImageUpload = (e) => {
         let maxSizeInKb = 3000;
@@ -47,43 +31,16 @@ function PersonalInfo(){
         <Wrapper id="personalInfo">
             <Div>
                 <FullName />
-
-                <Label>Email*:</Label>
-                <InputField type="email" name="email" required onChange={handleOnChange} />
-                <ErrorMessage>{errors.email}</ErrorMessage>
-
-                <Label>Age*:</Label>
-                <InputField type="number" name="age" required onChange={handleOnChange} />
-                <ErrorMessage>{errors.age}</ErrorMessage>
-
-                <Label>Password*:</Label>
-                <InputField type="password" name="password" required onChange={handleOnChange} />
-                <ErrorMessage>{errors.password}</ErrorMessage>
-
-                <Label>Birth date*:</Label>
-                <InputField type="date" name="birthDate" required onChange={handleOnChange} />
-                <ErrorMessage>{errors.birthDate}</ErrorMessage>
+                <Email />
+                {/* <Age />
+                <Password />
+                <Birthday /> */}
             </Div>
             <Div>
-                <Label>Mobile number:</Label>
-                {/* validation for lenght and to start with a code, search for regex for phone numbers */}
-                <InputField type="tel" name="phoneNumber" onChange={handleOnChange} />
-                <ErrorMessage>{errors.phoneNumber}</ErrorMessage>
-
-                <Label>Profile picture:</Label>
-                {/* validation for size */}
-                <FileUpload type="file" name="profilePicture" onChange={validateImageUpload} />
-                <ErrorMessage>{errors.profilePicture}</ErrorMessage>
-
-                <Label>Website:</Label>
-                {/* validation for https */}
-                <InputField type="url" name="website" onChange={handleOnChange} />
-                <ErrorMessage>{errors.website}</ErrorMessage>
-
-                <Label>Bio:</Label>
-                {/* validation for length and for special symbols */}
-                <Textarea name="bio" onChange={handleOnChange}></Textarea>
-                <ErrorMessage>{errors.bio}</ErrorMessage>
+                {/* <PhoneNumber />
+                <ProfilePicture />
+                <Website />
+                <Bio />                 */}
             </Div>
         </Wrapper>
     )

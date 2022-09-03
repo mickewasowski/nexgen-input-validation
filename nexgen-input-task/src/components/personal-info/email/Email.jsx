@@ -1,32 +1,34 @@
 import { useContext, useEffect, useState } from 'react';
 import { FormContext } from '../../../contexts/FormContext';
-
 import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 
-function FullName(){
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+function Email(){
     const {updateData} = useContext(FormContext);
     const [input, setInput] = useState('');
     const [error, setError] = useState('');
 
     useEffect(() => {
         if(input === ''){
-            setError('Fullname cannot be empty!');
+            setError('Email cannot be empty!');
         }
-        else if (input.length < 10 || input.length > 30) {
-            setError('Fullname must be between 10 and 30 characters.')
+        else if (!input.match(emailRegex)) {
+            setError('Invalid email address!')
         }else{
-            updateData({fullName: input})
+            updateData({email: input})
             setError('');
         }
     }, [input]);
 
+
     return(
         <>
-            <Label>Full name*:</Label>
-            <InputField type="text" name="fullName" required onChange={(e) => setInput(e.target.value)} />
+            <Label>Email*:</Label>
+            <InputField type="email" name="email" required onChange={(e) => setInput(e.target.value)}/>
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )
 }
 
-export default FullName;
+export default Email;
