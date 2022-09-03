@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     justify-content: space-around;
     margin-bottom: 4rem;
 
-    @media(min-width: 320px){
+    @media(min-width: 320px) and (max-width: 1024px){
         flex-direction: column;
     }
 `
@@ -19,7 +19,7 @@ export const Div = styled.div`
     width: 30%;
     gap: 1rem;
 
-    @media(min-width: 320px){
+    @media(min-width: 320px) and (max-width: 1024px){
         flex-direction: column;
         width: 100%;
     }

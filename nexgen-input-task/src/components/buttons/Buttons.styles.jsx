@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     margin-bottom: 4rem;
     color: white;
 
-    @media(min-width: 320px){
+    @media(min-width: 320px) and (max-width: 1024px){
         width: 100%; 
         flex-direction: column;
         gap: 2rem;
@@ -21,7 +21,7 @@ export const Container = styled.div`
     gap: 1rem;
     align-items: center;
 
-    @media(min-width: 320px){
+    @media(min-width: 320px) and (max-width: 1024px){
         flex-direction: column;
     }
 `

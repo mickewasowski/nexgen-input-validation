@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     margin-top: 4rem;
     width: 80%;
 
-    @media(min-width: 320px){
+    @media(min-width: 320px) and (max-width: 1024px){
         width: 100%; 
         margin-bottom: 3rem;
         justify-content: center;
@@ -30,7 +30,7 @@ export const Form = styled.form`
     margin: auto;
     margin-top: 3rem;
 
-    @media(min-width: 320px){
+    @media(min-width: 320px) and (max-width: 1024px){
         width: 100%; 
         height: 100%;
     }
@@ -51,7 +51,7 @@ export const Submit = styled.input`
         background-color: rgb(59, 191, 43);
     }
 
-    @media(min-width: 320px){
+    @media(min-width: 320px) and (max-width: 1024px){
         width: 50%; 
         height: 2rem;
     }
