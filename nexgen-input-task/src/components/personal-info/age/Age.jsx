@@ -5,12 +5,15 @@ import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 
 function Age(){
     const {updateData} = useContext(FormContext);
-    const [input, setInput] = useState(0);
+    const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
     useEffect(() => {
         if(input === 0){
             setError('Age is mandatory!');
+        }
+        else if(input === null){
+            return;
         }
         else if (input < 16 || input > 70) {
             setError('Age must be between 16 and 70!')

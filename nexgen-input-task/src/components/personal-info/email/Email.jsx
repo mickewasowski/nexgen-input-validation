@@ -6,12 +6,15 @@ const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 function Email(){
     const {updateData} = useContext(FormContext);
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
     useEffect(() => {
         if(input === ''){
             setError('Email cannot be empty!');
+        }
+        else if(input === null){
+            return;
         }
         else if (!input.match(emailRegex)) {
             setError('Invalid email address!')

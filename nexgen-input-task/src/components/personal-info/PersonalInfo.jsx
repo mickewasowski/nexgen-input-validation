@@ -33,7 +33,7 @@ function PersonalInfo(){
                 <FullName />
                 <Email />
                 <Age />
-                {/* <Password /> */}
+                <Password />
                 {/* <Birthday />  */}
             </Div>
             <Div>
