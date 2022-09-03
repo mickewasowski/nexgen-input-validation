@@ -1,6 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-import { FormContext } from '../../contexts/FormContext';
-import {Wrapper,Div, Label, InputField, ErrorMessage,FileUpload, Textarea} from './PersonalInfo.styles';
+import {Wrapper,Div} from './PersonalInfo.styles';
 import FullName from './full-name/FullName';
 import Email from './email/Email';
 import Age from './age/Age';
@@ -12,9 +10,6 @@ import Website from './website/Website';
 import Bio from './bio/Bio';
 
 function PersonalInfo(){
-    const {updateFormData} = useContext(FormContext);
-
-
     return(
         <Wrapper id="personalInfo">
             <Div>

@@ -11,7 +11,8 @@ const initialState = {
     phoneNumber: null,
     profilePicture: null,
     website: null,
-    bio: null
+    bio: null,
+    isChecked: null
 }
 
 export const FormProvider = ({children}) => {

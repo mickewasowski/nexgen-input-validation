@@ -23,7 +23,7 @@ function Birthday(){
             setError('You must be between 16 and 70 years old.')
         }
         else{
-            updateData({password: input})
+            updateData({birthDate: input})
             setError('');
         }
     }, [input]);
