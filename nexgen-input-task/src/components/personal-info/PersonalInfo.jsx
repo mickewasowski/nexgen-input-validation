@@ -37,10 +37,10 @@ function PersonalInfo(){
                 <Birthday /> 
             </Div>
             <Div>
-                {/* <PhoneNumber />
-                <ProfilePicture />
-                <Website />
-                <Bio />                 */}
+                <PhoneNumber />
+                {/* <ProfilePicture /> */}
+                {/* <Website /> */}
+                {/* <Bio />                 */}
             </Div>
         </Wrapper>
     )
