@@ -6,6 +6,8 @@ function AllInputs(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        
     }
 
     return(

@@ -17,7 +17,7 @@ export const Div = styled.div`
     display: flex;
     flex-direction: column;
     width: 30%;
-    gap: 1rem;
+    gap: .2rem;
 
     @media(min-width: 320px) and (max-width: 1024px){
         flex-direction: column;
@@ -48,6 +48,13 @@ export const InputField = styled.input`
         cursor: pointer;
         outline: 2px solid rgb(168, 247, 170);
     }
+`
+
+export const ErrorMessage = styled.p`
+    color: rgb(192, 14, 14);
+    font-weight: 400;
+    font-size: .8rem;
+    margin-top: .1rem;
 `
 
 export const FileUpload = styled.input`
