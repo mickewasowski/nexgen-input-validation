@@ -12,7 +12,7 @@ The form contains the following fields:
 7. Profile picture - must be a file of type image/jpeg or image/jpg, max size is 3MB
 8. Website - must be a valid website URL
 9. Bio - a string no longer than 40 characters
-10. Checkbox - true/false
+10. Checkbox - true/false, has to be true in order to submit the form
 
 It has a Reset button which reloads the page in order to clear all data.
 
@@ -29,3 +29,9 @@ Mobile view:
 
 Errors view:
 ![image](https://user-images.githubusercontent.com/39274188/188303617-59efca5e-0d72-4226-8bd9-a82574e1545b.png)
+
+![image](https://user-images.githubusercontent.com/39274188/188303836-8f42268f-fc89-4928-8085-2e37b654e501.png)
+
+Successful request:
+![image](https://user-images.githubusercontent.com/39274188/188303837-1f9b00ce-2c46-481f-9dda-32c16e9ec2f4.png)
+
