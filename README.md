@@ -12,9 +12,20 @@ The form contains the following fields:
 7. Profile picture - must be a file of type image/jpeg or image/jpg, max size is 3MB
 8. Website - must be a valid website URL
 9. Bio - a string no longer than 40 characters
+10. Checkbox - true/false
 
 It has a Reset button which reloads the page in order to clear all data.
 
 Upon submition it is checking whether the required fields are filled and if they are it makes a POST request to a bin HTTP: https://httpbin.org/post
 
 It is styled with styled components with responsive design. Nothing too crazy, just to make it nice and neat.
+
+Desktop view:
+![image](https://user-images.githubusercontent.com/39274188/188303528-5ce9a900-fad1-429d-9896-912d138f332c.png)
+
+
+Mobile view:
+![image](https://user-images.githubusercontent.com/39274188/188303551-527f29d9-e16b-421c-9fae-0c95ea263239.png)
+
+Errors view:
+![image](https://user-images.githubusercontent.com/39274188/188303617-59efca5e-0d72-4226-8bd9-a82574e1545b.png)
