@@ -13,21 +13,25 @@ function AllInputs(){
         console.log(formData);
 
         if(formData.fullName !== null && formData.email !== null && formData.age !== null && formData.password !== null && formData.birthDate !== null){
-            console.log('here');
-            fetch("https://httpbin.org/post", {
+            
+            if (formData.isChecked === null || formData.isChecked === false) {
+                alert("You need to agree to the Terms and Conditions!")
+            }else{
+                fetch("https://httpbin.org/post", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                   },
                 body: JSON.stringify(formData)
-            })
-            .then(res => {
-                console.log(res);
-                if (res.ok) {
-                    alert('Success!')
-                }
-            })
-            .catch(err => console.log(err));
+                })
+                .then(res => {
+                    console.log(res);
+                    if (res.ok) {
+                        alert('Success!')
+                    }
+                })
+                .catch(err => console.log(err));
+            }
         }
     }
 

@@ -5,10 +5,10 @@ import { FormContext } from '../../contexts/FormContext';
 
 function Buttons(){
     const [check, setCheck] = useState(false);
-    const {updateData} = useContext(FormContext);
+    const {updateIsChecked} = useContext(FormContext);
 
     useEffect(() => {
-        updateData({isChecked: check});
+        updateIsChecked(check);
     }, [check])
 
     return(

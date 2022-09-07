@@ -22,8 +22,10 @@ export const FormProvider = ({children}) => {
 
     const updateData = (object) => { setFormData(prevState => {return {...prevState, ...object}})}
 
+    const updateIsChecked = (bool) => { setFormData((prevState) => {return {...prevState, isChecked: bool}})};
+
     return(
-        <FormContext.Provider value={{formData, resetFormData, updateData}}>
+        <FormContext.Provider value={{formData, resetFormData, updateData, updateIsChecked}}>
             {children}
         </FormContext.Provider>
     )
