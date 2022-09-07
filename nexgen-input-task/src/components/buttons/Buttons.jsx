@@ -5,7 +5,7 @@ import { FormContext } from '../../contexts/FormContext';
 
 function Buttons(){
     const [check, setCheck] = useState(false);
-    const {updateIsChecked} = useContext(FormContext);
+    const {updateIsChecked, resetFormData} = useContext(FormContext);
 
     useEffect(() => {
         updateIsChecked(check);
@@ -15,7 +15,7 @@ function Buttons(){
         <Wrapper>
             <Container>
                 <label>Reset the form:</label>
-                <ResetBtn type="reset" onClick={() => {window.location.reload(false)}} /> 
+                <ResetBtn type="reset" onClick={resetFormData} /> 
             </Container>
             <Container>
                 <label>Do you agree with the Terms and Conditions?</label>

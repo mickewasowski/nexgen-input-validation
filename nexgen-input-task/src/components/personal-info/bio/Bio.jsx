@@ -4,7 +4,7 @@ import {Label, ErrorMessage, Textarea} from '../PersonalInfo.styles';
 
 
 function Bio(){
-    const {updateData} = useContext(FormContext);
+    const {updateData, formData} = useContext(FormContext);
     const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
@@ -27,7 +27,7 @@ function Bio(){
         <>
             <Label>Bio:</Label>
             {/* validation for length and for special symbols */}
-            <Textarea name="bio" onChange={(e) => setInput(e.target.value)}></Textarea>
+            <Textarea name="bio" defaultValue={formData.bio === null ? "" : formData.bio} onChange={(e) => setInput(e.target.value)}></Textarea>
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )

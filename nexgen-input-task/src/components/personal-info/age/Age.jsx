@@ -4,7 +4,7 @@ import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 
 
 function Age(){
-    const {updateData} = useContext(FormContext);
+    const {updateData, formData} = useContext(FormContext);
     const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
@@ -28,7 +28,7 @@ function Age(){
     return(
         <>
             <Label>Age*:</Label>
-            <InputField type="number" name="age" required onChange={(e) => setInput(Number(e.target.value))} />
+            <InputField type="number" name="age" defaultValue={formData.age === null ? "" : formData.age} required onChange={(e) => setInput(Number(e.target.value))} />
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )

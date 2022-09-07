@@ -5,7 +5,7 @@ import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 const websiteUrlRegex = /https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}/;
 
 function Website(){
-    const {updateData} = useContext(FormContext);
+    const {updateData, formData} = useContext(FormContext);
     const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
@@ -28,7 +28,7 @@ function Website(){
         <>
             <Label>Website:</Label>
             {/* validation for https */}
-            <InputField type="url" name="website" onChange={(e) => setInput(e.target.value)} />
+            <InputField type="url" name="website" defaultValue={formData.website === null ? "" : formData.website} onChange={(e) => setInput(e.target.value)} />
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )

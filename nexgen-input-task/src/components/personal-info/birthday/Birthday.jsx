@@ -6,7 +6,7 @@ const dateOldest = Date.parse("1956-01-01");
 const dateYounges = Date.parse("2006-01-01");
 
 function Birthday(){
-    const {updateData} = useContext(FormContext);
+    const {updateData, formData} = useContext(FormContext);
     const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
@@ -31,7 +31,7 @@ function Birthday(){
     return(
         <>
             <Label>Birth date*:</Label>
-            <InputField type="date" name="birthDate" required onChange={(e) => setInput(e.target.value)} />
+            <InputField type="date" name="birthDate" defaultValue={formData.birthDate === null ? "" : formData.birthDate} required onChange={(e) => setInput(e.target.value)} />
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )

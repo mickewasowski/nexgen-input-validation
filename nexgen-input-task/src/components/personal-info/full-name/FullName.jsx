@@ -4,7 +4,7 @@ import { FormContext } from '../../../contexts/FormContext';
 import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 
 function FullName(){
-    const {updateData} = useContext(FormContext);
+    const {updateData, formData} = useContext(FormContext);
     const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
@@ -26,7 +26,7 @@ function FullName(){
     return(
         <>
             <Label>Full name*:</Label>
-            <InputField type="text" name="fullName" required onChange={(e) => setInput(e.target.value)} />
+            <InputField type="text" name="fullName" defaultValue={formData.fullName === null ? "" : formData.fullName} required onChange={(e) => setInput(e.target.value)} />
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )

@@ -5,7 +5,7 @@ import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 function Email(){
-    const {updateData} = useContext(FormContext);
+    const {updateData, formData} = useContext(FormContext);
     const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
@@ -28,7 +28,7 @@ function Email(){
     return(
         <>
             <Label>Email*:</Label>
-            <InputField type="email" name="email" required onChange={(e) => setInput(e.target.value)}/>
+            <InputField type="email" name="email" defaultValue={formData.email === null ? "" : formData.email} required onChange={(e) => setInput(e.target.value)}/>
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )

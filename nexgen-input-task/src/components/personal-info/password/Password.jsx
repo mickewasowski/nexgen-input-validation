@@ -3,7 +3,7 @@ import { FormContext } from '../../../contexts/FormContext';
 import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 
 function Password(){
-    const {updateData} = useContext(FormContext);
+    const {updateData, formData} = useContext(FormContext);
     const [input, setInput] = useState(null);
     const [error, setError] = useState('');
 
@@ -27,7 +27,7 @@ function Password(){
     return(
         <>
             <Label>Password*:</Label>
-            <InputField type="password" name="password" required onChange={(e) => setInput(e.target.value)} />
+            <InputField type="password" name="password" defaultValue={formData.password === null ? "" : formData.password} required onChange={(e) => setInput(e.target.value)} />
             <ErrorMessage>{error}</ErrorMessage>
         </>
     )
