@@ -23,8 +23,7 @@ const initialErrors = {
     birthDate: null,
     phoneNumber: null,
     website: null,
-    bio: null,
-    isChecked: null
+    bio: null
 }
 
 export const FormProvider = ({children}) => {
@@ -41,8 +40,10 @@ export const FormProvider = ({children}) => {
         setErrors(prevState => {return {...prevState, ...errorObject}})
     };
 
+    const resetErrors = () => {setErrors(initialErrors)};
+
     return(
-        <FormContext.Provider value={{formData,errors, resetFormData, updateData, updateIsChecked, updateError}}>
+        <FormContext.Provider value={{formData,errors, resetFormData, updateData, updateIsChecked, updateError, resetErrors}}>
             {children}
         </FormContext.Provider>
     )

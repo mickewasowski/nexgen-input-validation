@@ -5,21 +5,20 @@ import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 const websiteUrlRegex = /https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}/;
 
 function Website(){
-    const {updateData, formData} = useContext(FormContext);
+    const {updateData, formData, errors, updateError} = useContext(FormContext);
     const [input, setInput] = useState(null);
-    const [error, setError] = useState('');
 
     useEffect(() => {
         if(input === '' || input === null){
             updateData({website: null})
-            setError('');
+            updateError({website: ''});
         }
         else if (!input.match(websiteUrlRegex)) {
-            setError('Invalid website format!')
+            updateError({website: 'Invalid website format!'})
         }
         else{
             updateData({website: input})
-            setError('');
+            updateError({website: null});
         }
     }, [input]);
 
@@ -27,9 +26,8 @@ function Website(){
     return(
         <>
             <Label>Website:</Label>
-            {/* validation for https */}
             <InputField type="url" name="website" defaultValue={formData.website === null ? "" : formData.website} onChange={(e) => setInput(e.target.value)} />
-            <ErrorMessage>{error}</ErrorMessage>
+            <ErrorMessage>{errors.website !== null ? errors.website : ''}</ErrorMessage>
         </>
     )
 }

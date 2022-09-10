@@ -10,8 +10,6 @@ function AllInputs(){
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(formData);
-
         if(formData.fullName !== null && formData.email !== null && formData.age !== null && formData.password !== null && formData.birthDate !== null){
             
             if (formData.isChecked === null || formData.isChecked === false) {
@@ -38,7 +36,6 @@ function AllInputs(){
     return(
         <Wrapper>
             <H2>Registration form:</H2>
-            TODO: clear the errors after a reset
             <Form>
                 <PersonalInfo />
                 <Buttons />

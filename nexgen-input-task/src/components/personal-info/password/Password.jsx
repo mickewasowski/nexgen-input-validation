@@ -3,23 +3,22 @@ import { FormContext } from '../../../contexts/FormContext';
 import {Label, InputField, ErrorMessage} from '../PersonalInfo.styles';
 
 function Password(){
-    const {updateData, formData} = useContext(FormContext);
+    const {updateData, formData, errors, updateError} = useContext(FormContext);
     const [input, setInput] = useState(null);
-    const [error, setError] = useState('');
 
     useEffect(() => {
         if(input === ''){
-            setError('Password is required!');
+            updateError({password: 'Password is required!'});
         }
         else if(input === null){
             return;
         }
         else if (input.length < 6 || input.length > 12) {
-            setError('Password must be between 6 and 12 characters.')
+            updateError({password: 'Password must be between 6 and 12 characters.'})
         }
         else{
             updateData({password: input})
-            setError('');
+            updateError({password: null});
         }
     }, [input]);
 
@@ -28,7 +27,7 @@ function Password(){
         <>
             <Label>Password*:</Label>
             <InputField type="password" name="password" defaultValue={formData.password === null ? "" : formData.password} required onChange={(e) => setInput(e.target.value)} />
-            <ErrorMessage>{error}</ErrorMessage>
+            <ErrorMessage>{errors.password !== null ? errors.password : ''}</ErrorMessage>
         </>
     )
 }
