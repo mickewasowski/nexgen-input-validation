@@ -15,8 +15,21 @@ const initialState = {
     isChecked: null
 }
 
+const initialErrors = {
+    fullName: null,
+    email: null,
+    age: null,
+    password: null,
+    birthDate: null,
+    phoneNumber: null,
+    website: null,
+    bio: null,
+    isChecked: null
+}
+
 export const FormProvider = ({children}) => {
     const [formData, setFormData] = useState(initialState);
+    const [errors, setErrors] = useState(initialErrors);
 
     const resetFormData = () => {setFormData(initialState)};
 
@@ -24,8 +37,12 @@ export const FormProvider = ({children}) => {
 
     const updateIsChecked = (bool) => { setFormData((prevState) => {return {...prevState, isChecked: bool}})};
 
+    const updateError = (errorObject) => {
+        setErrors(prevState => {return {...prevState, ...errorObject}})
+    };
+
     return(
-        <FormContext.Provider value={{formData, resetFormData, updateData, updateIsChecked}}>
+        <FormContext.Provider value={{formData,errors, resetFormData, updateData, updateIsChecked, updateError}}>
             {children}
         </FormContext.Provider>
     )

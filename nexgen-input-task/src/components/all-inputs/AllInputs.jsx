@@ -38,6 +38,7 @@ function AllInputs(){
     return(
         <Wrapper>
             <H2>Registration form:</H2>
+            TODO: clear the errors after a reset
             <Form>
                 <PersonalInfo />
                 <Buttons />
