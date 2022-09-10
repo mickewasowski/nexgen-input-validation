@@ -22,12 +22,16 @@ function Age(){
         }
     }, [input]);
 
-
-
     return(
         <>
             <Label>Age*:</Label>
-            <InputField type="number" name="age" defaultValue={formData.age === null ? "" : formData.age} required onChange={(e) => setInput(Number(e.target.value))} />
+            <InputField 
+                type="number" 
+                name="age" 
+                defaultValue={formData.age === null ? "" : formData.age} 
+                required 
+                onChange={(e) => setInput(Number(e.target.value))} 
+                />
             <ErrorMessage>{errors.age !== null ? errors.age : ''}</ErrorMessage>
         </>
     )

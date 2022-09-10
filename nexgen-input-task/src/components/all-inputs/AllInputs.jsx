@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 function AllInputs(){   
     const {formData} = useContext(FormContext);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -23,9 +23,8 @@ function AllInputs(){
                 body: JSON.stringify(formData)
                 })
                 .then(res => {
-                    console.log(res);
                     if (res.ok) {
-                        alert('Success!')
+                        alert('Success!');
                     }
                 })
                 .catch(err => console.log(err));
